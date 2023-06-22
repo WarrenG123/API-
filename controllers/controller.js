@@ -1,5 +1,19 @@
 const connection = require("../config/database");
 
+exports.createDb = (req, res) => {
+  const createdb =  'CREATE DATABASE testsql';
+  connection.query(createdb, (error, result) =>{
+    if (error) {
+      console.error('Error creating db:', error);
+      return res.status(500).json({ error: 'Failed to create db' });
+    }
+    return res.status(200).json({ message: 'DB created'});
+  });
+}
+
+
+
+
 // Create
 exports.createRecord = (req, res) => {
   const { name, title} = req.body;
@@ -73,7 +87,7 @@ exports.createTable = (req, res) => {
   const createStudents =  'CREATE TABLE student(id int AUTO_INCREMENT, studentName VARCHAR(255), age int, class VARCHAR(255), PRIMARY KEY(id))';
   connection.query(createStudents, (error, result) =>{
     if (error) {
-      console.error('Error creating record:', error);
+      console.error('Error creating table:', error);
       return res.status(500).json({ error: 'Failed to create Table' });
     }
     return res.status(200).json({ message: 'Table created'});
