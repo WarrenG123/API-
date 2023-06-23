@@ -1,4 +1,4 @@
-const connection = require("../config/database");
+const connection = require("../database");
 
 exports.createDb = (req, res) => {
   const createdb =  'CREATE DATABASE testsql';

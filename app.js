@@ -4,7 +4,7 @@
 const express = require('express');
 const app = express();
 const routes = require('../newwww/routes/routes');
-const connection = require('./config/database');
+const connection = require('./database');
 
 app.use(express.json());
 
