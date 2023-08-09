@@ -1,4 +1,4 @@
-const connection = require("../database");
+const connection = require("../config/database");
 
 exports.createDb = (req, res) => {
   const createdb =  'CREATE DATABASE testsql';
@@ -43,7 +43,7 @@ exports.createRecord = (req, res) => {
 
 // Read
 exports.getRecords = (req, res) => {
-  const readQuery = 'SELECT * FROM blogs';
+  const readQuery = 'SELECT * FROM employee';
   connection.query(readQuery, (error, results) => {
     if (error) {
       console.error('Error reading records: ', error);
